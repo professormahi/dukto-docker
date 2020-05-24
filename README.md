@@ -15,11 +15,11 @@ docker run --rm -it \
 ```
 or you can alias the above command:
 ```bash
-alias dukto-docker='docker run --rm -it -e USER=$USER -e USERID=$UID -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY --device /dev/dri -v $HOME/Downloads/.dukto --network host --name dukto professormahi/dukto:r6
-'
+alias dukto-docker='docker run --rm -it --user $UID:$GID -e USER=$USER -e USERID=$UID -e HOME=$HOME -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY --device /dev/dri -v $HOME:/home/$USER/ -v /etc/passwd:/etc/passwd --network host --name dukto professormahi/dukto:r6'
 ```
 
 ## Possible Problems
 In a case you've got the following error:
 > dukto: cannot connect to X server unix:0
+
 You can simply fix this using the `xhost +` command. This command will allow the docker container to use your host X.

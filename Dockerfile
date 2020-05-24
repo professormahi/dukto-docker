@@ -13,7 +13,6 @@ RUN wget http://ftp.lysator.liu.se/pub/opensuse/repositories/home:/colomboem/xUb
 RUN apt-get install -f -y \
     && rm -rf /var/lib/apt/lists/* 
 
-
 WORKDIR /data
 ENTRYPOINT ["dukto"]
 
