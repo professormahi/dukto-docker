@@ -1,7 +1,7 @@
 # Dukto container
 Runs a [duktoR6](https://www.msec.it/blog/dukto/) instance and it is possible to redirect it to the host network and its X.
 
-## To Run
+## How To Run
 ```bash
 docker run --rm -it \
     -e USER=$USER -e USERID=$UID \          # Setting up the user for received files ownership
@@ -17,6 +17,9 @@ or you can alias the above command:
 ```bash
 alias dukto-docker='docker run --rm -it --user $UID:$GID -e USER=$USER -e USERID=$UID -e HOME=$HOME -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY --device /dev/dri -v $HOME:/home/$USER/ -v /etc/passwd:/etc/passwd --network host --name dukto professormahi/dukto:r6'
 ```
+
+## How To Install
+To install use `install.sh` script. It will add a desktop files to run the Dukto container
 
 ## Possible Problems
 In a case you've got the following error:
