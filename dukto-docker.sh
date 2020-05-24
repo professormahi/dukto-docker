@@ -1,5 +1,10 @@
 #! /bin/bash
 
+if [ "$(docker ps -q -f name=dukto)" ]; then
+    docker exec -d dukto dukto
+    exit
+fi
+
 xhost +
 docker run --rm -d \
     --user $UID:$GID -e USER=$USER -e USERID=$UID \

@@ -14,6 +14,10 @@ RUN apt-get update \
         xdg-utils \
         nautilus 
 
+RUN apt-get install -y \
+    gedit \
+    eog
+
 RUN wget http://ftp.lysator.liu.se/pub/opensuse/repositories/home:/colomboem/xUbuntu_16.04/amd64/dukto_6.0-1_amd64.deb \
     && dpkg -i dukto_6.0-1_amd64.deb 
 
